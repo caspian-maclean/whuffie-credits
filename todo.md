@@ -11,7 +11,7 @@ Make an interaction log with the programs, demonstrating which goals it does and
 
 Link to related fiction and non-fiction about alternative monetary systems.
 
-
+Upload explanatory pseudocode or program structure document
 
 Maybe later
 -----------
@@ -19,4 +19,6 @@ Maybe later
 Test how many people and transactions the program can handle before getting slow.
 
 Make the program robust against bad transactions, specifically, debits or queries about previously unmentioned people.
+
+Make some documentation with graphs, it would be easier to read.
 
