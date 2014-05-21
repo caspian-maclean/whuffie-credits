@@ -1,29 +1,15 @@
 #!/usr/bin/python2.6
-#whuffie experiment, starting May 2014
+#
 #Copyright (c) 2014 Caspian Maclean
-#based on whuffie-2014-may-notes
-
+#
 #sections:
-# ======= plan =======
 # ======= imports =======
 # ======= classes =======
 # ======= interface ====== 
 # ======= compute =======
 # ======= print =======
 # ======= test =======
-#
 
-
-# ======= plan =======
-# Make new python file - done
-# record credits, print and test - done
-# compute single layer scale, print and test - done
-# change scale function to return its result - done
-# record credits, debits, nodes, print and test - done
-# compute scale, print and test - done
-# compute single layer, print and test - skipped
-# computer multiple layers, print and test - done
-# debug - done so far
 # remaining issue - if doing a debit or query with a non-existent node, something gets
 # messed up so future stuff won't work. Maybe just the invalid debit record is left
 # in the debit list. whuffie_init() fixes this as expected.
