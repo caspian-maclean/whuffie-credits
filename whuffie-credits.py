@@ -40,9 +40,11 @@ def whuffie_init():
   global credits
   global debits
   global flow_layers
+  global enable_scaling
   credits=[]
   debits=[]
   flow_layers={}
+  enable_scaling=1
 
 def credit(amount, by, subject):
   global credits
@@ -63,6 +65,10 @@ def query(by, subject):
   debits=debits[0:-1] # deleting the query transaction
   return result
 
+def disable_scaling():
+  global enable_scaling
+  enable_scaling=0
+
 # ======= compute =======
 
 def nodes_before(credit_count):
@@ -72,7 +78,7 @@ def nodes_before(credit_count):
     nodes.add(credit.subject)
   return nodes
 
-def compute_scale_factor(credit_count):
+def compute_scale_factor_std(credit_count):
   #version 1, with fudge factor "fudge"
   scale_results={}
   s={}
@@ -96,6 +102,17 @@ def compute_scale_factor(credit_count):
     scale_results[node]=s[node].varValue
   #print "scale done"
   return scale_results
+
+def compute_scale_factor_unscaled(credit_count):
+  s={}
+  for node in nodes_before(credit_count):
+    s[node]=1.0
+  return s
+
+def compute_scale_factor(credit_count):
+  if enable_scaling:
+    return compute_scale_factor_std(credit_count)
+  return compute_scale_factor_unscaled(credit_count)
 
 def create_flow_layer(layer_number):
   global credits

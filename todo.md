@@ -1,8 +1,6 @@
 To do
 =====
 
-Allow turning off the scaling of credits, to allow for simpler examples
-
 Describe where to find the required library, PuLP
 
 Link to my Google+ post about goals for the system
@@ -24,5 +22,7 @@ Make some documentation with graphs, it would be easier to read.
 
 Done
 ====
+
+Allow turning off the scaling of credits, to allow for simpler examples
 
 Upload python code for computations
