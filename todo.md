@@ -1,8 +1,6 @@
 To do
 =====
 
-Upload python code for computations
-
 Describe where to find the required library, PuLP
 
 Link to my Google+ post about goals for the system
@@ -22,3 +20,7 @@ Make the program robust against bad transactions, specifically, debits or querie
 
 Make some documentation with graphs, it would be easier to read.
 
+Done
+====
+
+Upload python code for computations
