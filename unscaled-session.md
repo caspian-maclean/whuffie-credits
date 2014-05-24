@@ -1,7 +1,7 @@
 
 
 ```
-python2.6 -i whuffie-credits.py 
+$ python2.6 -i whuffie-credits.py 
 hello
 Available functions:
 
