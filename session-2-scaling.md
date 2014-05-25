@@ -16,3 +16,5 @@ Example: you give someone 30 credits, they give out a total of 3, so those 3 cre
 
 This shows a few of the complications: the credit given by node "you" was not scaled down to zero for a few reasons: a "fudge factor" prevents any scaling factor from going down as low as zero, and the node doing the query is not scaled at all (partly so "you" can read the result in your own scale). Also the results were not exact, mainly due to the fudge factor, but also due to rounding errors.
 
+This session was run using v0.2.0 of the whuffie-credits program.
+
