@@ -233,5 +233,24 @@ query("you","B")
 An example showing how the system is sometimes equivalent to a maximum flow problem.
 https://en.wikipedia.org/wiki/Maximum_flow_problem
 
+=====
+Normally when scaling is turned on, whuffie out equals whuffie in. Show how you can change this by sending some of your credit to a "reservation" node
+
+whuffie_init()
+credit(100,"A","you")
+credit(10,"you","B")
+query("A","B")
+
+99.999099999999999
+
+That's too much
+
+credit(40,"you","reserved")
+query("A","B")
+
+20.0
+
+That's better
+======
 
 
