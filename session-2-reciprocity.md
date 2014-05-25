@@ -6,7 +6,7 @@ We're turning off scaling as before
 	>>> whuffie_init()
 	>>> disable_scaling()
 
-You help someone, they appreciate that and the system keeps a record of it for them.
+You help someone, they appreciate that and give you whuffie, and the system keeps a record of it for them.
 
 	>>> credit(12,"them", "you")
 
@@ -24,7 +24,7 @@ So their whuffie has gone up.
 	>>> query("you","them")
 	11.0
 
-You could then do something for them, and so on.
+You could then do something for them, and be given whuffie for it, and so on.
 
 	>>> credit(13,"them", "you")
 	>>> query("them","you")
@@ -37,7 +37,7 @@ That's a simple situation, the system hasn't been very useful yet. In the next e
 
 	>>> credit(4,"second","you")
 
-Next, the second person helps a third person, and gets whuffie from the third person.
+Next, the second person helps a third person, who gives them whuffie.
 
 	>>> credit(5,"third","second")
 
@@ -54,20 +54,7 @@ Once you give them whuffie for this, it raises the second person's whuffie (acco
 	>>> query("you","second")
 	3.0
 
-So you help them and earn whuffie, and in the second cycle, your whuffie with the third person, who seems to have something useful for you, goes up to twice as much it was before
-
-	>>> credit(4,"second","you")
-	>>> query("third","you")
-	5.0
-
-It's already gone up a bit, but there's more this cycle.
-
-	>>> credit(5,"third","second")
-	>>> query("third","you")
-	8.0
-	>>> 
-
-Your whuffie at the end of the cycle, encouraging more help from "third".
+The cycle can keep repeating over and over.
 
 This session was run using v0.2.0 of the whuffie-credits program.
 
