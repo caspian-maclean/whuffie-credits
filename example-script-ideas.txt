@@ -57,7 +57,36 @@ You could then do something for them, and so on.
 
 That's a simple situation, the system hasn't been very useful yet. In the next example, you're paid back by a different person from the one you helped. First, you help a second person, and they give you whuffie for this.
 Next, the second person helps a third person, and gets whuffie from the third person.
-In this example, suppose the third person can't do anything really useful for the second person at the moment. So they see you now have whuffie, and help you. Once you give them whuffie for this, it raises their whuffie with the second person so it's good for them too. You giving the whuffie is good for you, since it encourages the cycle.
+In this example, suppose the third person can't do anything really useful for the second person at the moment. So they see you now have whuffie, and help you. Once you give them whuffie for this, it raises the second person's whuffie (according to you), encouraging you to continue the cycle by helping the second person again.
+
+So you help them and earn whuffie, and in the second cycle, your whuffie with the third person, who seems to have something useful for you, goes up to twice as much it was before
+
+whuffie_init()
+disable_scaling()
+credit(12,"them", "you")
+query("them","you")
+credit(11,"you","them")
+query("you","them")
+credit(13,"them", "you")
+query("them","you")
+credit(14,"you","them")
+query("you","them")
+
+
+
+credit(4,"second","you")
+credit(5,"third","second")
+query("third","you")
+
+query("you","second")
+credit(3,"you","third")
+query("you","second")
+
+credit(4,"second","you")
+query("third","you")
+credit(5,"third","second")
+query("third","you")
+
 
 =====
 Scaling
