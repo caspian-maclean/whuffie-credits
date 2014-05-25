@@ -69,4 +69,5 @@ It's already gone up a bit, but there's more this cycle.
 
 Your whuffie at the end of the cycle, encouraging more help from "third".
 
+This session was run using v0.2.0 of the whuffie-credits program.
 

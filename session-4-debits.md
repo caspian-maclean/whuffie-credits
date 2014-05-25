@@ -158,3 +158,5 @@ It's not so bad if the whuffie was only partially cancelled, as in the case of B
 	1.0
 	>>> 
 
+This session was run using v0.2.0 of the whuffie-credits program.
+
