@@ -113,9 +113,9 @@ def compute_scale_factor_unscaled(credit_count):
     s[node]=1.0
   return s
 
-def compute_scale_factor(credit_count):
+def compute_scale_factor(credit_count, by_node):
   if enable_scaling:
-    return compute_scale_factor_std(credit_count)
+    return compute_scale_factor_std(credit_count, by_node)
   return compute_scale_factor_unscaled(credit_count)
 
 def create_flow_layer(layer_number):
@@ -129,7 +129,7 @@ def create_flow_layer(layer_number):
   layer_credits=credits[0:credit_count]
   #print layer_credits
   layer_nodes=nodes_before(credit_count)
-  s=compute_scale_factor(credit_count)
+  s=compute_scale_factor(credit_count, debit.by)
   for node in layer_nodes:
     balance[node] = 0 #incomplete equation
   for credit in layer_credits:
