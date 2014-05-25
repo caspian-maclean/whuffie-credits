@@ -93,14 +93,12 @@ def compute_scale_factor_std(credit_count):
     scaled_amount = credit.amount * s[credit.by]
     balance[credit.by] = balance[credit.by] - scaled_amount
     balance[credit.subject] = balance[credit.subject] + scaled_amount
-  #scale_problem=
   scale_problem=LpProblem("scale problem", LpMinimize) #minimisation not needed here
   for node in nodes:
     scale_problem += balance[node] == 0, "balance:"+str(node)
   scale_problem.solve()
   for node in nodes:
     scale_results[node]=s[node].varValue
-  #print "scale done"
   return scale_results
 
 def compute_scale_factor_unscaled(credit_count):
