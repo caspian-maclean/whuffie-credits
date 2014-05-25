@@ -203,45 +203,43 @@ def print_scale_factor_list(s):
 
 # ======= test =======
 
+def test_pulp():
+  print "Trying to solve x = 1"
+  problem=LpProblem("trivial problem x=1",LpMaximize)
+  x=LpVariable("simple variable x",0,1000000)
+  problem += x == 1.0 
+  problem.solve()
+  print "x value:", x.varValue
+  print "x representation when printed:", x  
+
 def test1():
   print_hello()
   whuffie_init()
   credit(1.0,"A","B")
-  #credit(1.0,"B","A")
-  query("A","B")
-  create_flow_layer(0)
-  create_capacity_limit_equations()
-  compute_result()
-  scl=compute_scale_factor(len(credits))
-  print scl
+  print query("A","B")
+  scl=compute_scale_factor(len(credits),"A")
+  print "scale seen by A", scl
   print_scale_factor_list(scl)
+  scl=compute_scale_factor(len(credits),"B")
+  print "scale seen by B", scl
 
-
-
-# more testing
-
-def test2_crash():
-  print_hello()
+def test1_crash():
   whuffie_init()
   credit(1.0,"A","B")
-  credit(2.0,"B","C")
+  debit(0.5,"C","A")
+  print query("A","B")
+  #crashes, having a debit refer to a previously unused node isn't supported.
+
+def test2_crash():
+  whuffie_init()
   credit(1.0,"C","A")
   debit(0.5,"C","A")
-  credit(1.0,"B","D")
   credit(1.0,"D","A")
   debit(0.2,"D","A")
-  query("A","B")
-  print_credits()
-  scl=compute_scale_factor(len(credits))
-  print scl
-  print_scale_factor_list(scl)
-  print nodes_before(2)
-  print nodes_before(3)
-  create_flow_layer(0)
-  create_flow_layer(1)
+  print query("A","B")
   create_flow_layer(2)
-  print create_capacity_limit_equations()
-  compute_result()
+  #crashes as the query debit transaction was deleted after use, and so
+  #only two flow layers (0 and 1) can be computed
 
 def test3():
   print_hello()
@@ -253,7 +251,7 @@ def test3():
 
   print "result of query:", r
 
-  scl=compute_scale_factor(len(credits))
+  scl=compute_scale_factor(len(credits),"A")
   print scl
   print_scale_factor_list(scl)
 
@@ -270,13 +268,13 @@ def test4():
   r=query("A","B")
   print "result of query:", r
   print_credits()
-  scl=compute_scale_factor(len(credits))
+  scl=compute_scale_factor(len(credits),"A")
   print scl
   print_scale_factor_list(scl)
   print nodes_before(2)
   print nodes_before(3)
 
-def test_min_crash():
+def test5():
   whuffie_init()
   credit(amount=1.0, by="A", subject="B")
   debit(amount=0.0, by="A", subject="B")
@@ -285,8 +283,6 @@ def test_min_crash():
   #works now, after making sure all variable names used at once are different.
   #query creates a new variable with the same name each time - is this a problem?
 
-#test_min_crash()
-#test3()
 def test_interactive():
   print_hello()
   print "Available functions:"
