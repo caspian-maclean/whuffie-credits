@@ -1,3 +1,5 @@
+# Session log - Introduction
+
 Here's a demonstration session introducing the whuffie credits system. First, starting the program:
 
 ```

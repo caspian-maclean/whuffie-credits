@@ -1,4 +1,5 @@
-Session log - Reciprocity
+# Session log - Reciprocity
+
 This session shows how whuffie can encourage reciprocity, paying back help.
 
 We're turning off scaling as before

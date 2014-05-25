@@ -1,6 +1,7 @@
-Session log - scaling
+# Session log - Scaling
 
 Rather than have everyone have to measure out the whuffie they give on the same scale, each person can use their own and have the system automatically rescale.
+
 The way the scaling works, the whuffie each person's given out is scaled to match the total they received, though with a few complications.
 Example: you give someone 30 credits, they give out a total of 3, so those 3 credits are scaled up by a factor of 10
 
