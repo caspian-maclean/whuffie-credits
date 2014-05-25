@@ -81,6 +81,119 @@ $ python -i whuffie-credits.py
 test_pulp()
 =====
 Debits
+If a favour is repaid, the whuffie can be cancelled with the debit function. Sometimes this can help prevent the same favor being repaid over and over again, totalling an unfair amount of repayment. Debiting has drawbacks, so you wouldn't always want to do it, or you might only debit a small amount.
+
+Direct example:
+credit(10,"you","them")
+query("you","them")
+debit(10,"you","them")
+query("you","them")
+
+You could have just remembered that you'd repaid "them" though.
+
+Indirect example, cancelling the whuffie from you shared by X and Y. First give the whuffie:
+credit(10,"you","X")
+credit(10,"X","Y")
+query("you","Y")
+query("you","X")
+query("you","X")
+
+Then cancel it with a debit:
+debit(10,"you","Y")
+query("you","Y")
+query("you","X")
+It also cancelled Y's whuffie from X
+query("you","X")
+
+Otherwise both "you" and "X" might repay "Y". In this example it might not be so bad, but in a long chain of you, A,B,C,D,E,F...Y it could be more unfair than people would tolerate.
+
+Partial cancellation example
+credit(10,"you","A")
+query("you","A")
+debit(2,"you","A")
+query("you","A")
+
+Debits do no change the scaling factors (complicated example, not sure whether to include):
+credit(10,"you","C")
+credit(1,"B","C")
+query("you","C")
+The credit was scaled up to match what you'd given to "B".
+credit(4,"B","C")
+query("you","C")
+The credit scaling was reduced, so the total still matches what you'd given to "B".
+debit(4,"B","C")
+query("you","C")
+Scaling was not changed by the debit, total is now less than what you'd given "B"
+query("you","B")
+
+The next scenario's easier to show with scaling turned off. Also it has a lot of people so we'll reset the system first:
+whuffie_reset()
+disable_scaling()
+
+M helps a lot of people
+credit(1,"A","M")
+credit(1,"B","M")
+credit(1,"C","M")
+credit(1,"D","M")
+credit(1,"E","M")
+
+and is helped by a lot of people
+credit(1,"M","V")
+credit(1,"M","W")
+credit(1,"M","X")
+credit(1,"M","Y")
+credit(1,"M","Z")
+
+All the people who helped M now have credit with people helped by M, e.g.
+query("A","V")
+query("A","Z")
+query("C","Z")
+
+"A" might help Z an amount they thought proportionate, then B,C,D,E might also do so, giving a total of 5 times as much help as they thought proportionate, and not having helped V,W,X, or Y at all.
+
+So to solve this, "A" and "Z" agree to a debit when A repays Z
+
+debit(1,"A","Z")
+
+In this case it fully cancelled all credit from A, and all credit to Z
+
+query("A","V")
+query("A","Z")
+query("C","Z")
+query("C","V")
+
+If you'd wanted to only partially cancel it, that's an option too, e.g. if B then helps Y
+
+debit(0.3,"B","Y")
+query("B","V")
+query("B","Y")
+query("C","Y")
+query("C","V")
+
+Finally, one of the drawbacks. Where there haven't been any debits, the system allows more opportunity of indirect payback. e.g. if E helps V and gets whuffie for it, then E has whuffie from everyone who had given whuffie to V previously.
+query("D","E")
+query("M","E")
+query("V","E")
+credit(1,"V","E")
+query("D","E")
+query("M","E")
+query("V","E")
+
+Any of them might then repay E.
+
+But if Z gives whuffie to A for help received, since Z's whuffie from others was cancelled, there's only direct whuffie to repay A.
+
+credit(1,"Z","A")
+query("D","A")
+query("M","A")
+query("Z","A")
+
+It's not so bad if the whuffie was only partially cancelled, as in the case of B and Y, but there's still a reduction of indirect whuffie available.
+
+credit(1,"Y","B")
+query("D","B")
+query("M","B")
+query("Y","B")
 
 
 
