@@ -20,6 +20,8 @@ Make the program robust against bad transactions, specifically, debits or querie
 
 Make some documentation with graphs, it would be easier to read.
 
+Add reference to maximum flow problem, https://en.wikipedia.org/wiki/Maximum_flow_problem
+
 Done
 ====
 
