@@ -81,7 +81,7 @@ def nodes_before(credit_count):
   return nodes
 
 def compute_scale_factor_std(credit_count, by_node):
-  #version 1, with fudge factor "fudge"
+  #with fudge factor "fudge"
   scale_results={}
   s={}
   balance={}
