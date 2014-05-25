@@ -35,3 +35,16 @@ query(by="you", subject="C")
 credit(amount=5, by="you",subject="D")
 credit(amount=7, by="D",subject="E")
 query(by="you", subject="E")
+
+
+======
+More session ideas:
+Show reciprocity, basic and indirect
+Show scaling
+Show PuLP error when it's not installed with a solver
+Show debits
+Show debits reducing indirect reciprocity (a flaw in the system)
+=======
+
+
+
