@@ -103,7 +103,7 @@ debit(10,"you","Y")
 query("you","Y")
 query("you","X")
 It also cancelled Y's whuffie from X
-query("you","X")
+query("X","Y")
 
 Otherwise both "you" and "X" might repay "Y". In this example it might not be so bad, but in a long chain of you, A,B,C,D,E,F...Y it could be more unfair than people would tolerate.
 
@@ -113,21 +113,11 @@ query("you","A")
 debit(2,"you","A")
 query("you","A")
 
-Debits do no change the scaling factors (complicated example, not sure whether to include):
-credit(10,"you","C")
-credit(1,"B","C")
-query("you","C")
-The credit was scaled up to match what you'd given to "B".
-credit(4,"B","C")
-query("you","C")
-The credit scaling was reduced, so the total still matches what you'd given to "B".
-debit(4,"B","C")
-query("you","C")
-Scaling was not changed by the debit, total is now less than what you'd given "B"
-query("you","B")
+
+
 
 The next scenario's easier to show with scaling turned off. Also it has a lot of people so we'll reset the system first:
-whuffie_reset()
+whuffie_init()
 disable_scaling()
 
 M helps a lot of people
@@ -194,6 +184,25 @@ credit(1,"Y","B")
 query("D","B")
 query("M","B")
 query("Y","B")
+
+=======
+Another session, maybe with more mathematical details
+
+Debits do no change the scaling factors (complicated example, didn't include in main debits session):
+credit(10,"you","C")
+credit(1,"B","C")
+query("you","C")
+The credit was scaled up to match what you'd given to "B".
+credit(4,"B","C")
+query("you","C")
+The credit scaling was reduced, so the total still matches what you'd given to "B".
+debit(4,"B","C")
+query("you","C")
+Scaling was not changed by the debit, total is now less than what you'd given "B"
+query("you","B")
+
+An example showing how the system is sometimes equivalent to a maximum flow problem.
+https://en.wikipedia.org/wiki/Maximum_flow_problem
 
 
 
