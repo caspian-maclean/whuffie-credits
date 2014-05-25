@@ -46,5 +46,41 @@ Show debits
 Show debits reducing indirect reciprocity (a flaw in the system)
 =======
 
+Reciprocity:
+This session shows how whuffie can encourage reciprocity, paying back help.
+We're turning off scaling as before
+You help someone, they appreciate that and the system keeps a record of it for them.
+They see your whuffie's gone up, and can decide to do something for you in return.
+If you like what they did, the system records that (when you tell it)
+So their whuffie has gone up.
+You could then do something for them, and so on.
+
+That's a simple situation, the system hasn't been very useful yet. In the next example, you're paid back by a different person from the one you helped. First, you help a second person, and they give you whuffie for this.
+Next, the second person helps a third person, and gets whuffie from the third person.
+In this example, suppose the third person can't do anything really useful for the second person at the moment. So they see you now have whuffie, and help you. Once you give them whuffie for this, it raises their whuffie with the second person so it's good for them too. You giving the whuffie is good for you, since it encourages the cycle.
+
+=====
+Scaling
+Rather than have everyone have to measure out the whuffie they give on the same scale, each person can use their own and have the system automatically rescale.
+The way the scaling works, the whuffie each person's given out is scaled to match the total they received, though with a few complications.
+Example: you give someone 30 credits, they give out a total of 3, so those 3 credits are scaled up by a factor of 10
+
+credit(30,"you","them")
+credit(1,"them","A")
+credit(2,"them","B")
+query("you","A")
+query("you","B")
+
+This shows a few of the complications: the credit given by node "you" was not scaled down to zero for a few reasons: a "fudge factor" prevents any scaling factor from going down as low as zero, and the node doing the query is not scaled at all (partly so "you" can read the result in your own scale). Also the results were not exact, mainly due to the fudge factor, but also due to rounding errors.
+
+=====
+PuLP test
+If PuLP is not installed at all you would get a straightforward error about this.
+But if the solver's not working correctly (like when I used the latest python 2.7)
+$ python -i whuffie-credits.py 
+test_pulp()
+=====
+Debits
+
 
 
