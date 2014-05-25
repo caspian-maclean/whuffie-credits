@@ -11,6 +11,8 @@ Link to related fiction and non-fiction about alternative monetary systems.
 
 Upload explanatory pseudocode or program structure document
 
+In one of the session logs, I suggest not agreeing to debit all / most of someone's whuffie, as that reduces the ways that a favour can be paid back. Pick a way to measure when this is going to happen, so the parties involved can choose to avoid it if desired. Otherwise you might end up accidentally doing it in multiple small transactions, none of which individually debit most of someone's whuffie.
+
 Maybe later
 -----------
 
