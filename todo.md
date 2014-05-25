@@ -11,6 +11,8 @@ Link to related fiction and non-fiction about alternative monetary systems.
 
 Upload explanatory pseudocode or program structure document
 
+Proofread session logs to make sure they're illustrating what I meant them to be.
+
 Maybe later
 -----------
 

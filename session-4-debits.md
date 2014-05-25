@@ -1,4 +1,5 @@
-Debits
+Session log - debits
+
 If a favour is repaid, the whuffie can be cancelled with the debit function. Sometimes this can help prevent the same favor being repaid over and over again, totalling an unfair amount of repayment. Debiting has drawbacks, so you wouldn't always want to do it, or you might only debit a small amount.
 
 Direct example:
