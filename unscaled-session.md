@@ -1,4 +1,4 @@
-
+Here's a demonstration session introducing the whuffie credits system. First, starting the program:
 
 ```
 $ python2.6 -i whuffie-credits.py 
