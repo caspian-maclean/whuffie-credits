@@ -41,10 +41,12 @@ def whuffie_init():
   global debits
   global flow_layers
   global enable_scaling
+  global subjective_scaling
   credits=[]
   debits=[]
   flow_layers={}
   enable_scaling=1
+  subjective_scaling=1
 
 def credit(amount, by, subject):
   global credits
@@ -78,7 +80,7 @@ def nodes_before(credit_count):
     nodes.add(credit.subject)
   return nodes
 
-def compute_scale_factor_std(credit_count):
+def compute_scale_factor_std(credit_count, by_node):
   #version 1, with fudge factor "fudge"
   scale_results={}
   s={}
@@ -93,6 +95,8 @@ def compute_scale_factor_std(credit_count):
     scaled_amount = credit.amount * s[credit.by]
     balance[credit.by] = balance[credit.by] - scaled_amount
     balance[credit.subject] = balance[credit.subject] + scaled_amount
+  if subjective_scaling:
+    balance[by_node] = s[by_node] - 1
   #scale_problem=
   scale_problem=LpProblem("scale problem", LpMinimize) #minimisation not needed here
   for node in nodes:
