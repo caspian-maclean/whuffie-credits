@@ -24,6 +24,8 @@ Make some documentation with graphs, it would be easier to read.
 
 Add reference to maximum flow problem, https://en.wikipedia.org/wiki/Maximum_flow_problem
 
+Allow credits to decay according to some chosen half-life.
+
 Done
 ====
 
